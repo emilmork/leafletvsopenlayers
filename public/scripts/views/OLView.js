@@ -7,27 +7,6 @@ define(function(require){
       // Called on initialize
       initMap : function(){
         
-        this.map = new OpenLayers.Map("map-openlayers");
-        var mapLayer = new OpenLayers.Layer.OSM();
-
-        this.vectorLayer = new OpenLayers.Layer.Vector("Søk", { 
-            name : "Søk",
-            strategies: [
-                new OpenLayers.Strategy.Cluster({
-                    distance: 75
-                })
-            ],
-            styleMap : this.styleMap()
-        });
-
-        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // WGS 1984
-        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat(this.Trondheim.lat, this.Trondheim.lon).transform(fromProjection, toProjection);
-        var zoom           = 10; 
- 
-        this.map.addLayers([mapLayer, this.vectorLayer]);
-        this.map.addControl(new OpenLayers.Control.LayerSwitcher({ 'ascending':false }));
-        this.map.setCenter(position, zoom );
 
       },
 
