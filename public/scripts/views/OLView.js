@@ -8,17 +8,41 @@ define(function(require){
       initMap : function(){
         
 
+
+
+        // this.vectorLayer = new OpenLayers.Layer.Vector("Søk", { 
+        //     name : "Søk",
+        //     strategies: [
+        //         new OpenLayers.Strategy.Cluster({
+        //             distance: 75
+        //         })
+        //     ],
+        //     styleMap : this.styleMap()
+        // });
+
+        // var fromProjection = new OpenLayers.Projection("EPSG:4326");   // WGS 1984
+        // var toProjection   = new OpenLayers.Projection("EPSG:900913"); // Spherical Mercator Projection
+        // var position       = new OpenLayers.LonLat(this.Trondheim.lat, this.Trondheim.lon).transform(fromProjection, toProjection);
+        // var zoom           = 10; 
+
       },
 
-      // Called when search is finished
+
+
       imagesReceived : function() {
         this.clearImages();
 
-        
+        var features = [];
         this.collection.each(function(image) {
 
+          var lonLat = this.getLonLatObj(image.get("longitude"), image.get("latitude"));
+          var f = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(lonLat.lon, lonLat.lat));
+            
+          features.push(f);
 
         }, this);
+
+        this.vectorLayer.addFeatures(features);
       },
 
 
@@ -27,6 +51,7 @@ define(function(require){
       },
 
       clearImages : function() {
+
       }
 
 
