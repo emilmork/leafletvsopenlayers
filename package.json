@@ -1,0 +1,25 @@
+{
+  "name": "leafletvsopenlayers",
+  "version": "0.0.1",
+  "description": "Comparison of OpenLayers and Leaflet",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/emilmork/leafletvsopenlayers.git"
+  },
+  "keywords": [
+    "leaflet.js",
+    "Openlayers.js",
+    "map",
+    "geojson"
+  ],
+  "author": "Emil Mork",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilmork/leafletvsopenlayers/issues"
+  },
+  "homepage": "https://github.com/emilmork/leafletvsopenlayers",
+   "dependencies": {
+    "express": "3.x"
+  }
+}
