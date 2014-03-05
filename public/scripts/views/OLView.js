@@ -51,7 +51,7 @@ define(function(require){
       },
 
       clearImages : function() {
-
+        this.vectorLayer.removeAllFeatures();
       }
 
 
